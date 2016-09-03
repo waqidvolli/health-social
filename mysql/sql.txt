@@ -1,0 +1,48 @@
+CREATE DATABASE `health_social` /*!40100 DEFAULT CHARACTER SET latin1 */;
+
+CREATE TABLE `group` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  `access_key` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name_UNIQUE` (`name`)
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=latin1;
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(8) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `email_UNIQUE` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+CREATE TABLE `user_group` (
+  `user_id` int(11) NOT NULL,
+  `group_id` int(11) NOT NULL,
+  KEY `user_id_fk_idx` (`user_id`),
+  KEY `group_id_fk_idx` (`group_id`),
+  CONSTRAINT `group_id_fk` FOREIGN KEY (`group_id`) REFERENCES `group` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  CONSTRAINT `user_id_fk` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `week` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `start` date NOT NULL,
+  `end` date NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+CREATE TABLE `goal` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `week_id` int(11) NOT NULL,
+  `activity` varchar(45) NOT NULL,
+  `target` int(11) NOT NULL,
+  `completed` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `goal_user_id_fk_idx` (`user_id`),
+  KEY `goal_week_id_fk_idx` (`week_id`),
+  CONSTRAINT `goal_user_id_fk` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  CONSTRAINT `goal_week_id_fk` FOREIGN KEY (`week_id`) REFERENCES `week` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
