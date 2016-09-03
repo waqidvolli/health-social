@@ -1,0 +1,26 @@
+{
+  "name": "health-social",
+  "version": "1.0.0",
+  "description": "Social Health app to track and manange your fitness goals which can be shared with friends and family.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "keywords": [
+    "health",
+    "fitness",
+    "social"
+  ],
+  "author": "Waqid Munawar Volli",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "bootstrap": "^3.3.7",
+    "cors": "^2.8.0",
+    "express": "^4.14.0",
+    "jquery": "^3.1.0",
+    "mysql": "^2.11.1",
+    "toastr": "^2.1.2"
+  }
+}

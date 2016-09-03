@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/toastr/toastr.min.css">
+    <script src="/jquery/jquery.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/toastr/toastr.min.js"></script>
+    <script src="/lib/js/master.js"></script>
+    <script src="/lib/js/progress.js"></script>
+
+</head>
+
+<body>
+    <div>
+
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+            <li id="home-tab"role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
+            <li id="groups-tab" role="presentation"><a href="#groups" aria-controls="groups" role="tab" data-toggle="tab">Groups</a></li>
+            <li id="goals-tab" role="presentation"><a href="#goals" aria-controls="goals" role="tab" data-toggle="tab">Goals</a></li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+            
+
+            <!-- - - - - - - - - - - - - -->
+            <!-- - - - - HOME  - - - - - -->
+            <!-- - - - - - - - - - - - - -->
+            <div role="tabpanel" class="tab-pane active" id="home">
+
+            	<div id="user-goal-status"></div>
+                <!-- <button onclick="initHome()" class="btn btn-default pull-right">
+                 <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+                </button> -->
+
+            </div>
+
+			<!-- - - - - - - - - - - - - -->
+            <!-- - - - - GROUPS  - - - - -->
+            <!-- - - - - - - - - - - - - -->
+            <div role="tabpanel" class="tab-pane" id="groups">
+
+            </div>
+
+            
+            <!-- - - - - - - - - - - - - -->
+            <!-- - - - - GOALS - - - - - -->
+            <!-- - - - - - - - - - - - - -->
+            <div role="tabpanel" class="tab-pane" id="goals">
+                
+                <div id="activity-list" class="well-sm">
+                    <!-- dynamically append activities -->
+                </div>
+                <div class="well-sm">
+                    <button onclick="addActivity()" class="btn btn-default pull-left center-block">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                    </button>
+                    <button onclick="removeActivity()" class="btn btn-default pull-left center-block">
+                        <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+                    </button>
+                    <button onclick="savePlan()" class="btn btn-default pull-right center-block">
+                        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                    </button>
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+
+    </div>
+
+
+
+
+</body>
+</html>
